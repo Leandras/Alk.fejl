@@ -11,23 +11,25 @@
     </div>
   </form>
 
+{% for category in categories %}
 
   <div class="row">
-
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
+          {{ category.nev }}
           Levesek
           <a href="#" class="btn btn-warning btn-xs pull-right">Összes megtekintése</a>
         </div>
         <div class="list-group">
-          <a href="#" class="list-group-item">Paradicsomleves</a>
-          <a href="#" class="list-group-item">Fokhagyma krémleves</a>
-          <a href="#" class="list-group-item">Eperkrémleves</a>
+          {% for recipe in category.recipes %}
+          <a href="#" class="list-group-item">{{ recipe.name }}</a>
+          
+          {% endfor %}
         </div>
       </div>
     </div>
-
+<!--
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -53,10 +55,11 @@
         </div>
       </div>
     </div>
-
+-->
   </div>
 
-
+{% endfor %}
+<!--
   <div class="row">
 
     <div class="col-md-4">
@@ -86,5 +89,5 @@
     </div>
 
   </div>
-
+-->
 {% endblock %}
